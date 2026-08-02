@@ -174,7 +174,7 @@ export default function ChatBot({ onStateChange }: { onStateChange?: (isOpen: bo
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed inset-x-0 bottom-0 sm:absolute sm:inset-auto sm:bottom-18 sm:left-0 w-full sm:w-[360px] max-w-full h-[85dvh] max-h-[600px] sm:h-[480px] bg-card-bg sm:border sm:border-card-border rounded-t-2xl sm:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] sm:shadow-2xl flex flex-col overflow-hidden z-[100]"
+            className="fixed inset-x-0 bottom-0 sm:absolute sm:inset-auto sm:bottom-18 sm:left-0 w-full sm:w-[360px] max-w-full h-[85dvh] max-h-[600px] sm:h-[480px] bg-background border-t border-border sm:border sm:border-card-border rounded-t-2xl sm:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] sm:shadow-2xl flex flex-col overflow-hidden z-[100]"
             role="dialog"
             aria-modal="true"
             aria-label="True Life Global Assistant Panel"
@@ -201,7 +201,7 @@ export default function ChatBot({ onStateChange }: { onStateChange?: (isOpen: bo
             </div>
 
             {/* Messages body */}
-            <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-background-alt/50">
+            <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-background">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -225,7 +225,7 @@ export default function ChatBot({ onStateChange }: { onStateChange?: (isOpen: bo
             </div>
 
             {/* Input area */}
-            <form onSubmit={handleInputSubmit} className="p-3 bg-card-bg border-t border-card-border flex gap-2">
+            <form onSubmit={handleInputSubmit} className="p-3 pb-6 sm:pb-3 bg-background-alt border-t border-card-border flex gap-2">
               <input
                 type={step === "lead-email" ? "email" : "text"}
                 value={inputVal}
