@@ -77,16 +77,16 @@ export default function Hero() {
             muted
             loop
             playsInline
-            className={`absolute top-1/2 left-1/2 min-w-[100vw] min-h-[100vh] sm:min-w-[100vh] sm:min-h-[100vw] object-cover transition-opacity duration-1000 ease-in-out ${
-              idx === activeSlide ? "opacity-75" : "opacity-0"
+            className={`absolute top-1/2 left-1/2 w-[100vh] h-[100vw] object-cover transition-opacity duration-1000 ease-in-out ${
+              idx === activeSlide ? "opacity-100" : "opacity-0"
             }`}
             style={{
               transform: "translate(-50%, -50%) rotate(-90deg)",
             }}
           />
         ))}
-        {/* Deep, premium dark overlay to ensure readability on mobile and desktop */}
-        <div className="absolute inset-0 bg-gradient-to-b sm:bg-gradient-to-r from-black/90 via-black/75 to-black/40 z-10" />
+        {/* Lighter gradient overlay to ensure readability while keeping video bright */}
+        <div className="absolute inset-0 bg-gradient-to-b sm:bg-gradient-to-r from-black/80 via-black/40 to-black/10 z-10" />
       </div>
 
       {/* Hero Content */}

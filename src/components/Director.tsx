@@ -7,11 +7,11 @@ import Image from "next/image";
 const LEADERS = [
   {
     name: "Soundarrajan Vaithiyanathan",
-    role: "Founder & CEO",
+    role: "Founder",
     image: "/founder-ceo.jpg",
     imagePosition: "object-[center_25%]",
     bio: [
-      "Soundarrajan Vaithiyanathan is the visionary Founder and CEO of True Life Global Pte. Ltd., a Singapore-incorporated company delivering integrated accounting and logistics services. With over 14 years of progressive financial and operations experience across multinational corporations in Singapore and India, he brings deep expertise in financial management, compliance, and business operations.",
+      "Soundarrajan Vaithiyanathan is the visionary Founder of True Life Global Pte. Ltd., a Singapore-incorporated company delivering integrated accounting and logistics services. With over 14 years of progressive financial and operations experience across multinational corporations in Singapore and India, he brings deep expertise in financial management, compliance, and business operations.",
       "His journey spans industry leaders including Genpact, Capgemini, Teleperformance, and Rohlig Blue Service, where he managed high-volume financial transactions, led cross-functional teams, and implemented SAP ERP systems across global environments. He is a certified US GAAP professional from Ernst & Young (2026) and holds an MBA.",
       "Driven by a passion for empowering SMEs with reliable financial guidance, Soundarrajan founded True Life Global to bridge the gap between professional financial services and everyday business needs in Singapore.",
     ],
@@ -25,20 +25,20 @@ const LEADERS = [
   },
   {
     name: "Kannan Sivadeeskannan K",
-    role: "Chief Operating Officer (COO)",
+    role: "Chief Executive Officer (CEO)",
     image: "/coo.jpg",
     imagePosition: "object-[center_10%]",
     bio: [
-      "Kannan Sivadeeskannan K serves as the Chief Operating Officer (COO) of True Life Global Pte. Ltd., where he oversees the company's day-to-day operations, business processes, and strategic execution. He is committed to building efficient systems, enhancing organizational performance, and driving sustainable business growth.",
+      "Kannan Sivadeeskannan K serves as the Chief Executive Officer (CEO) of True Life Global Pte. Ltd., where he oversees the company's day-to-day operations, business processes, and strategic execution. He is committed to building efficient systems, enhancing organizational performance, and driving sustainable business growth.",
       "Kannan holds a B.B.A., LL.B. (Hons) from Bharath Institute of Higher Education and Research, Chennai, providing him with a strong foundation in business management, corporate governance, and legal compliance. He is also pursuing an MBA in Human Resource Management at Alagappa University.",
-      "As COO, he works closely with the executive leadership team to optimize operations, ensure regulatory compliance, enhance client satisfaction, and support the long-term vision of True Life Global Pte. Ltd.",
+      "As CEO, he works closely with the executive leadership team to optimize operations, ensure regulatory compliance, enhance client satisfaction, and support the long-term vision of True Life Global Pte. Ltd.",
     ],
     badges: ["BBA LL.B (Hons)", "MBA (HRM)", "Operations"],
     tags: ["Business Management", "Corporate Governance", "Legal Compliance", "HR Management"],
     stats: [
       { stat: "BBA", label: "LL.B. (Hons)" },
       { stat: "MBA", label: "HR Management (Pursuing)" },
-      { stat: "COO", label: "Strategic Operations" },
+      { stat: "CEO", label: "Strategic Leadership" },
     ],
   },
 ];
