@@ -16,19 +16,23 @@ import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import JsonLd from "@/components/JsonLd";
+import ConsultationModal from "@/components/ConsultationModal";
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isConsultOpen, setIsConsultOpen] = useState(false);
+
+  const openConsultation = () => setIsConsultOpen(true);
 
   return (
     <>
       <JsonLd />
-      <Navbar />
+      <Navbar onBookConsultation={openConsultation} />
       <main className="flex-1">
-        <Hero />
+        <Hero onBookConsultation={openConsultation} />
         <About />
         <Services />
-        <HowWeWork />
+        <HowWeWork onBookConsultation={openConsultation} />
         <Director />
         <Testimonials />
         <WhyUs />
@@ -41,6 +45,7 @@ export default function Home() {
       {/* Floating Widgets */}
       <WhatsAppButton isChatOpen={isChatOpen} />
       <ChatBot onStateChange={setIsChatOpen} />
+      <ConsultationModal isOpen={isConsultOpen} onClose={() => setIsConsultOpen(false)} />
     </>
   );
 }

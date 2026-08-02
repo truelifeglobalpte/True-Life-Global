@@ -22,7 +22,11 @@ const STEP_ICONS = [
   </svg>,
 ];
 
-export default function HowWeWork() {
+interface HowWeWorkProps {
+  onBookConsultation: () => void;
+}
+
+export default function HowWeWork({ onBookConsultation }: HowWeWorkProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
@@ -116,16 +120,16 @@ export default function HowWeWork() {
               Book a free, no-obligation consultation with our Singapore business experts today.
             </p>
           </div>
-          <a
-            href="/#contact"
-            className="btn-wow-effect w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-accent text-white hover:bg-accent-readable shadow-sm hover:shadow transition-all duration-150 whitespace-nowrap hover:-translate-y-0.5"
+          <button
+            onClick={onBookConsultation}
+            className="btn-wow-effect w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-accent text-white hover:bg-accent-readable shadow-sm hover:shadow transition-all duration-150 whitespace-nowrap hover:-translate-y-0.5 cursor-pointer"
           >
             Book a Consultation
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
             </svg>
-          </a>
+          </button>
         </motion.div>
 
       </div>

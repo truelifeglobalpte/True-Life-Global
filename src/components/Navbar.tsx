@@ -6,7 +6,11 @@ import Image from "next/image";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { NAV_LINKS } from "@/lib/constants";
 
-export default function Navbar() {
+interface NavbarProps {
+  onBookConsultation?: () => void;
+}
+
+export default function Navbar({ onBookConsultation }: NavbarProps) {
   const { isDark, toggle, mounted } = useDarkMode();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -123,16 +127,22 @@ export default function Navbar() {
             )}
 
             {/* Book consultation CTA */}
-            <a
-              href="/#contact"
-              className={`btn-wow-effect inline-flex items-center px-6 py-2.5 text-sm font-semibold rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 ${
+            <button
+              onClick={() => {
+                if (onBookConsultation) {
+                  onBookConsultation();
+                } else {
+                  window.location.href = "/#contact";
+                }
+              }}
+              className={`btn-wow-effect inline-flex items-center px-6 py-2.5 text-sm font-semibold rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 cursor-pointer ${
                 isScrolled
                   ? "bg-[#0066cc] text-white hover:bg-[#0055bb]"
                   : "bg-white text-navy-950 hover:bg-white/90"
               }`}
             >
               Book a Consultation
-            </a>
+            </button>
           </div>
 
           {/* Mobile menu trigger */}
@@ -247,13 +257,19 @@ export default function Navbar() {
                   </a>
                 ))}
                 <div className="mt-6 pt-6 border-t border-border">
-                  <a
-                    href="/#contact"
-                    onClick={closeMobile}
-                    className="btn-wow-effect block w-full text-center px-6 py-4 text-sm font-semibold rounded-full bg-[#0066cc] text-white hover:bg-[#0055bb]"
+                  <button
+                    onClick={() => {
+                      closeMobile();
+                      if (onBookConsultation) {
+                        onBookConsultation();
+                      } else {
+                        window.location.href = "/#contact";
+                      }
+                    }}
+                    className="btn-wow-effect block w-full text-center px-6 py-4 text-sm font-semibold rounded-full bg-[#0066cc] text-white hover:bg-[#0055bb] cursor-pointer"
                   >
                     Book a Consultation
-                  </a>
+                  </button>
                 </div>
               </div>
             </motion.div>

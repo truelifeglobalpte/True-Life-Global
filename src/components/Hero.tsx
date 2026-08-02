@@ -30,7 +30,11 @@ const slides = [
 const subhead =
   "A Singapore-registered company delivering trusted financial expertise and reliable courier support, committed to precision, compliance, and strategic clarity for your business.";
 
-export default function Hero() {
+interface HeroProps {
+  onBookConsultation: () => void;
+}
+
+export default function Hero({ onBookConsultation }: HeroProps) {
   const [activeSlide, setActiveSlide] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
@@ -120,9 +124,9 @@ export default function Hero() {
 
               {/* CTAs */}
               <div className="pt-4 sm:pt-6 flex flex-col sm:flex-row gap-3.5 sm:gap-4 w-full sm:w-auto">
-                <a
-                  href="/#contact"
-                  className="btn-wow-effect inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full bg-[#0066cc] text-white hover:bg-[#0055bb] shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
+                <button
+                  onClick={onBookConsultation}
+                  className="btn-wow-effect inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full bg-[#0066cc] text-white hover:bg-[#0055bb] shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto cursor-pointer"
                 >
                   Book a Consultation
                   <svg
@@ -137,7 +141,7 @@ export default function Hero() {
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
-                </a>
+                </button>
                 <a
                   href="/#services"
                   className="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full border border-white/30 text-white backdrop-blur-sm hover:bg-white/10 hover:border-white transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto"
