@@ -77,7 +77,7 @@ export default function Hero() {
             muted
             loop
             playsInline
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 w-full h-full object-cover object-[70%_center] sm:object-center transition-opacity duration-1000 ease-in-out ${
               idx === activeSlide ? "opacity-100" : "opacity-0"
             }`}
           />
