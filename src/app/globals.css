@@ -1,26 +1,303 @@
 @import "tailwindcss";
 
+/* ============================================
+   TRUE LIFE GLOBAL — Premium Design Tokens
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core brand palette - Inspired by Apple & VelWorld (Clean Off-White + Classic Apple Blue) */
+  --bg: #fbfbfd;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --accent-color: #0066cc;
+  --card-background: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+
+  /* Mapped semantic tokens */
+  --background: var(--bg);
+  --background-alt: #ffffff; /* Clean white alternate */
+  --foreground: var(--text);
+  --foreground-secondary: var(--text-secondary);
+  --accent: var(--accent-color);
+  --accent-readable: #0055bb;
+  --accent-tint: rgba(0, 102, 204, 0.06);
+  --accent-secondary: var(--accent-color);
+  --border: var(--border-color);
+  
+  /* Cards & Glassmorphism */
+  --card-bg: var(--card-background);
+  --card-border: var(--border-color);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.06);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px var(--shadow-color);
+  --shadow-md: 0 12px 30px -10px var(--shadow-color);
+  --shadow-lg: 0 20px 40px -15px var(--shadow-color);
+  --shadow-lift: 0 30px 60px -15px var(--shadow-color);
+  --glow: 0 0 40px rgba(0, 102, 204, 0.05);
 }
+
+/* Dark mode ("night mood") */
+.dark {
+  --background: #0B0F19;
+  --background-alt: #111827;
+  --foreground: #F3F4F6;
+  --foreground-secondary: #9CA3AF;
+  --accent: #3B82F6;
+  --accent-readable: #60A5FA;
+  --accent-tint: rgba(59, 130, 246, 0.1);
+  --accent-secondary: #3B82F6;
+  --border: rgba(255, 255, 255, 0.06);
+  
+  --card-bg: #111827;
+  --card-border: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(17, 24, 39, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.06);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 20px 50px -15px rgba(0, 0, 0, 0.6);
+  --shadow-lift: 0 32px 70px -15px rgba(0, 0, 0, 0.7);
+  --glow: 0 0 50px rgba(59, 130, 246, 0.05);
+}
+
+/* ============================================
+   Tailwind Theme Extension
+   ============================================ */
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-accent: var(--accent);
+  --color-accent-readable: var(--accent-readable);
+  --color-accent-tint: var(--accent-tint);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-border: var(--border);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+
+  --color-navy-950: #080D1A;
+  --color-navy-800: #1E293B;
+  --color-gold-500: #C5A866;
+  --color-gold-400: #9B7E3E;
+  --color-gold-100: #F7EFE0;
+  --color-emerald-600: #0F766E;
+  --color-whatsapp: #25D366;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-fraunces);
+  --font-mono: var(--font-ibm-plex-mono);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-lift: var(--shadow-lift);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================
+   Base Typography & Styles
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* iOS Safari focus zoom prevention & touch targets */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  font-size: 16px;
+}
+
+::selection {
+  background-color: var(--accent-tint);
+  color: var(--foreground);
+}
+
+/* ============================================
+   Focus styles (accessibility)
+   ============================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   Premium Typography
+   ============================================ */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  /* Color is intentionally omitted — controlled by Tailwind utilities per-component */
+}
+
+/* Force hero text to always be white in both light and dark mode */
+#hero h1,
+#hero h2,
+#hero h3,
+#hero p,
+#hero span {
+  color: #ffffff !important;
+}
+
+/* Restore non-white for hero badges/accents */
+#hero .badge-accent {
+  color: #60a5fa !important;
+}
+
+/* Elegant serif highlight */
+.editorial-text {
+  font-style: italic;
+  font-weight: 400;
+  font-family: var(--font-display);
+}
+
+/* ============================================
+   Aesthetic Elements (WOW Factors)
+   ============================================ */
+
+/* Soft light flare backgrounds */
+.glow-spot-1 {
+  background: radial-gradient(circle, rgba(197, 168, 102, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
+}
+.dark .glow-spot-1 {
+  background: radial-gradient(circle, rgba(197, 168, 102, 0.04) 0%, rgba(8, 13, 26, 0) 75%);
+}
+
+.glow-spot-2 {
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+}
+.dark .glow-spot-2 {
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.03) 0%, rgba(8, 13, 26, 0) 75%);
+}
+
+/* Glassmorphic Container styling */
+.glass-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Premium Card states */
+.premium-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(197, 168, 102, 0.4);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Dotted grid pattern */
+.dotted-grid {
+  background-image: radial-gradient(circle, var(--border) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+/* Gradient borders */
+.gradient-border-b {
+  position: relative;
+}
+.gradient-border-b::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+
+/* ============================================
+   Signature ledger-route line animation
+   ============================================ */
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: var(--line-length, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.ledger-line-animate {
+  animation: drawLine 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  stroke-dasharray: var(--line-length, 1000);
+  stroke-dashoffset: var(--line-length, 1000);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ledger-line-animate {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
+/* ============================================
+   Section Layouts
+   ============================================ */
+
+.section-padding {
+  padding: 4.5rem 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding: 6rem 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 10rem 4rem;
+  }
 }
