@@ -86,19 +86,31 @@ export default function Navbar({ onBookConsultation }: NavbarProps) {
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-1.5">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
-                  isScrolled
-                    ? "text-foreground-secondary hover:text-foreground hover:bg-accent-tint"
-                    : "text-white/80 hover:text-white hover:bg-white/10"
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isAnchor = link.href.startsWith("/#") || link.href.startsWith("#");
+              const targetId = isAnchor ? link.href.split("#")[1] : null;
+
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    if (isAnchor && targetId && window.location.pathname === "/") {
+                      e.preventDefault();
+                      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+                      window.history.pushState(null, "", link.href);
+                    }
+                  }}
+                  className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
+                    isScrolled
+                      ? "text-foreground-secondary hover:text-foreground hover:bg-accent-tint"
+                      : "text-white/80 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
           {/* Desktop Actions */}
@@ -246,16 +258,40 @@ export default function Navbar({ onBookConsultation }: NavbarProps) {
                 </button>
               </div>
               <div className="p-5 flex flex-col gap-1.5">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={closeMobile}
-                    className="px-4 py-3.5 text-base font-medium text-foreground-secondary hover:text-foreground hover:bg-accent-tint rounded-xl transition-all"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {NAV_LINKS.map((link) => {
+                  const isAnchor = link.href.startsWith("/#") || link.href.startsWith("#");
+                  const targetId = isAnchor ? link.href.split("#")[1] : null;
+
+                  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                    closeMobile();
+
+                    if (isAnchor && targetId) {
+                      const isHomepage = window.location.pathname === "/";
+                      if (isHomepage) {
+                        e.preventDefault();
+                        // Wait for overflow: hidden to clear from the body
+                        setTimeout(() => {
+                          const element = document.getElementById(targetId);
+                          if (element) {
+                            element.scrollIntoView({ behavior: "smooth" });
+                          }
+                          window.history.pushState(null, "", link.href);
+                        }, 80);
+                      }
+                    }
+                  };
+
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={handleLinkClick}
+                      className="px-4 py-3.5 text-base font-medium text-foreground-secondary hover:text-foreground hover:bg-accent-tint rounded-xl transition-all"
+                    >
+                      {link.label}
+                    </a>
+                  );
+                })}
                 <div className="mt-6 pt-6 border-t border-border">
                   <button
                     onClick={() => {
