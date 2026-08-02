@@ -6,6 +6,23 @@ import Image from "next/image";
 
 const LEADERS = [
   {
+    name: "Soundarrajan Vaithiyanathan",
+    role: "Founder & Chief Operating Officer",
+    image: "/founder-ceo.jpg",
+    imagePosition: "object-[center_25%]",
+    bio: [
+      "Soundarrajan Vaithiyanathan is the innovative Founder & Chief operating officer of True Life Global Pte. Ltd a company based in Singapore that provides comprehensive accounting and logistics solutions. With more than 14 years of extensive experience in finance and operations within multinational firms in Singapore and India, he possesses significant knowledge in financial management, compliance, and business operations.",
+      "His career includes tenures at industry giants such as Genpact, Capgemini, Teleperformance, and Rohlig Blue Service, where he oversaw high-volume financial transactions, directed cross-functional teams, and executed SAP ERP systems in global settings. He is a certified US GAAP professional from Ernst & Young (2026) and has earned an MBA.",
+    ],
+    badges: ["US GAAP (EY)", "MBA", "14+ Yrs Experience"],
+    tags: ["Genpact", "Capgemini", "Teleperformance", "Rohlig Blue Service", "Ernst & Young"],
+    stats: [
+      { stat: "14+", label: "Years Experience" },
+      { stat: "US GAAP", label: "Certified (EY 2026)" },
+      { stat: "MBA", label: "Business Management" },
+    ],
+  },
+  {
     name: "Dr. Kannan Sivadeeskannan K",
     role: "Chief Executive Officer",
     image: "/coo.jpg",
@@ -21,23 +38,6 @@ const LEADERS = [
       { stat: "BBA", label: "LL.B. (Hons)" },
       { stat: "MBA", label: "HR Management (Pursuing)" },
       { stat: "CEO", label: "Strategic Leadership" },
-    ],
-  },
-  {
-    name: "Soundarrajan Vaithiyanathan",
-    role: "Founder & Chief Operating Officer",
-    image: "/founder-ceo.jpg",
-    imagePosition: "object-[center_25%]",
-    bio: [
-      "Soundarrajan Vaithiyanathan is the innovative Founder & Chief operating officer of True Life Global Pte. Ltd a company based in Singapore that provides comprehensive accounting and logistics solutions. With more than 14 years of extensive experience in finance and operations within multinational firms in Singapore and India, he possesses significant knowledge in financial management, compliance, and business operations.",
-      "His career includes tenures at industry giants such as Genpact, Capgemini, Teleperformance, and Rohlig Blue Service, where he oversaw high-volume financial transactions, directed cross-functional teams, and executed SAP ERP systems in global settings. He is a certified US GAAP professional from Ernst & Young (2026) and has earned an MBA.",
-    ],
-    badges: ["US GAAP (EY)", "MBA", "14+ Yrs Experience"],
-    tags: ["Genpact", "Capgemini", "Teleperformance", "Rohlig Blue Service", "Ernst & Young"],
-    stats: [
-      { stat: "14+", label: "Years Experience" },
-      { stat: "US GAAP", label: "Certified (EY 2026)" },
-      { stat: "MBA", label: "Business Management" },
     ],
   },
 ];
