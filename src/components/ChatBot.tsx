@@ -210,7 +210,7 @@ export default function ChatBot({ onStateChange }: { onStateChange?: (isOpen: bo
                   <div
                     className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm ${
                       msg.sender === "user"
-                        ? "bg-navy-950 text-paper-0 dark:bg-gold-500 dark:text-navy-950 rounded-br-none"
+                        ? "bg-navy-950 text-white dark:bg-gold-500 dark:text-navy-950 rounded-br-none"
                         : "bg-card-bg border border-card-border text-foreground rounded-bl-none shadow-sm"
                     }`}
                   >
@@ -245,7 +245,7 @@ export default function ChatBot({ onStateChange }: { onStateChange?: (isOpen: bo
               />
               <button
                 type="submit"
-                className="p-2 rounded-xl bg-navy-950 text-paper-0 dark:bg-gold-500 dark:text-navy-950 hover:opacity-90 transition-opacity flex items-center justify-center w-10 h-10 flex-shrink-0"
+                className="p-2 rounded-xl bg-navy-950 text-white dark:bg-gold-500 dark:text-navy-950 hover:opacity-90 transition-opacity flex items-center justify-center w-10 h-10 flex-shrink-0"
                 aria-label="Send message"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
