@@ -25,7 +25,7 @@ export default function Footer() {
               </div>
               <div>
                 <span className="font-display text-xl font-bold text-white block leading-tight">
-                  True Life<span className="text-gold-500"> Global</span> <span className="text-xs font-normal text-white/60">Pte. Ltd.</span>
+                  True Life Global <span className="text-xs font-normal">Pte. Ltd.</span>
                 </span>
                 <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-gold-500 block font-semibold mt-0.5">
                   CLARITY TODAY. GROWTH TOMORROW.
