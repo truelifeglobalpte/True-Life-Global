@@ -6,6 +6,24 @@ import Image from "next/image";
 
 const LEADERS = [
   {
+    name: "Dr. Kannan Sivadeeskannan K",
+    role: "Chief Executive Officer (CEO)",
+    image: "/coo.jpg",
+    imagePosition: "object-[center_10%]",
+    bio: [
+      "Dr. Kannan Sivadeeskannan K serves as the Chief Executive Officer (CEO) of True Life Global Pte. Ltd., where he oversees the company's day-to-day operations, business processes, and strategic execution. He is committed to building efficient systems, enhancing organizational performance, and driving sustainable business growth.",
+      "He holds a B.B.A., LL.B. (Hons) from Bharath Institute of Higher Education and Research, Chennai, and has been awarded an Honorary Doctorate in Social Services. He is also pursuing an MBA in Human Resource Management at Alagappa University.",
+      "As CEO, he works closely with the executive leadership team to optimize operations, ensure regulatory compliance, enhance client satisfaction, and support the long-term vision of True Life Global Pte. Ltd.",
+    ],
+    badges: ["Honorary Doctorate", "BBA LL.B (Hons)", "MBA (HRM)"],
+    tags: ["Honorary Doctorate", "Business Management", "Corporate Governance", "Legal Compliance", "HR Management"],
+    stats: [
+      { stat: "BBA", label: "LL.B. (Hons)" },
+      { stat: "MBA", label: "HR Management (Pursuing)" },
+      { stat: "CEO", label: "Strategic Leadership" },
+    ],
+  },
+  {
     name: "Soundarrajan Vaithiyanathan",
     role: "Founder",
     image: "/founder-ceo.jpg",
@@ -21,24 +39,6 @@ const LEADERS = [
       { stat: "14+", label: "Years Experience" },
       { stat: "US GAAP", label: "Certified (EY 2026)" },
       { stat: "MBA", label: "Business Management" },
-    ],
-  },
-  {
-    name: "Kannan Sivadeeskannan K",
-    role: "Chief Executive Officer (CEO)",
-    image: "/coo.jpg",
-    imagePosition: "object-[center_10%]",
-    bio: [
-      "Kannan Sivadeeskannan K serves as the Chief Executive Officer (CEO) of True Life Global Pte. Ltd., where he oversees the company's day-to-day operations, business processes, and strategic execution. He is committed to building efficient systems, enhancing organizational performance, and driving sustainable business growth.",
-      "Kannan holds a B.B.A., LL.B. (Hons) from Bharath Institute of Higher Education and Research, Chennai, providing him with a strong foundation in business management, corporate governance, and legal compliance. He is also pursuing an MBA in Human Resource Management at Alagappa University.",
-      "As CEO, he works closely with the executive leadership team to optimize operations, ensure regulatory compliance, enhance client satisfaction, and support the long-term vision of True Life Global Pte. Ltd.",
-    ],
-    badges: ["BBA LL.B (Hons)", "MBA (HRM)", "Operations"],
-    tags: ["Business Management", "Corporate Governance", "Legal Compliance", "HR Management"],
-    stats: [
-      { stat: "BBA", label: "LL.B. (Hons)" },
-      { stat: "MBA", label: "HR Management (Pursuing)" },
-      { stat: "CEO", label: "Strategic Leadership" },
     ],
   },
 ];
