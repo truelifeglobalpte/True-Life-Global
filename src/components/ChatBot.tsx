@@ -145,7 +145,7 @@ export default function ChatBot({ onStateChange }: { onStateChange?: (isOpen: bo
   };
 
   return (
-    <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50">
+    <div className="fixed bottom-5 left-5 sm:bottom-6 sm:left-6 z-50">
       {/* Floating Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -174,7 +174,7 @@ export default function ChatBot({ onStateChange }: { onStateChange?: (isOpen: bo
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed inset-x-0 bottom-0 sm:absolute sm:inset-auto sm:bottom-18 sm:right-0 w-full sm:w-[360px] max-w-full h-[85dvh] max-h-[600px] sm:h-[480px] bg-card-bg sm:border sm:border-card-border rounded-t-2xl sm:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] sm:shadow-2xl flex flex-col overflow-hidden z-[100]"
+            className="fixed inset-x-0 bottom-0 sm:absolute sm:inset-auto sm:bottom-18 sm:left-0 w-full sm:w-[360px] max-w-full h-[85dvh] max-h-[600px] sm:h-[480px] bg-card-bg sm:border sm:border-card-border rounded-t-2xl sm:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] sm:shadow-2xl flex flex-col overflow-hidden z-[100]"
             role="dialog"
             aria-modal="true"
             aria-label="True Life Global Assistant Panel"

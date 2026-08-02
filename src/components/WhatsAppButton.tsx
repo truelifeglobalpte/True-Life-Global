@@ -10,7 +10,7 @@ export default function WhatsAppButton({ isChatOpen }: { isChatOpen: boolean }) 
   const link = `https://wa.me/${COMPANY.whatsapp}?text=${message}`;
 
   return (
-    <div className="fixed bottom-20 right-5 sm:bottom-24 sm:right-6 z-50">
+    <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50">
       <a
         href={link}
         target="_blank"
