@@ -89,7 +89,7 @@
   --color-whatsapp: #25D366;
 
   --font-sans: var(--font-inter);
-  --font-display: var(--font-inter);
+  --font-display: var(--font-plus-jakarta);
   --font-mono: var(--font-ibm-plex-mono);
 
   --shadow-sm: var(--shadow-sm);
@@ -161,10 +161,10 @@ textarea {
    ============================================ */
 
 h1, h2, h3, h4 {
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-plus-jakarta), var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-weight: 800;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   /* Color is intentionally omitted — controlled by Tailwind utilities per-component */
 }
 
