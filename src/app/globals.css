@@ -132,8 +132,10 @@ body {
   overflow-x: hidden;
 }
 
-p {
-  text-align: justify;
+@media (min-width: 768px) {
+  p {
+    text-align: justify;
+  }
 }
 
 /* iOS Safari focus zoom prevention & touch targets */
