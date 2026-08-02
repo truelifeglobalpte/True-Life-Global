@@ -38,8 +38,9 @@ export default function Navbar({ onBookConsultation }: NavbarProps) {
   }, [isMobileOpen]);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-md border-b border-border py-3"
           : "bg-transparent py-4"
@@ -204,114 +205,115 @@ export default function Navbar({ onBookConsultation }: NavbarProps) {
           </div>
         </div>
       </div>
+    </nav>
 
-      {/* Mobile menu Drawer */}
-      <AnimatePresence>
-        {isMobileOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-navy-950/60 backdrop-blur-sm lg:hidden"
-              onClick={closeMobile}
-              aria-hidden="true"
-            />
-            {/* Drawer container */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.25 }}
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-background border-l border-border shadow-xl lg:hidden z-50 overflow-y-auto"
-            >
-              <div className="flex items-center justify-between p-4 sm:p-5 border-b border-border">
-                <a href="/" onClick={closeMobile} className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-white p-1 shadow-sm border border-border flex-shrink-0 overflow-hidden">
-                    <Image
-                      src="/videos/logotruelifeglobal.jpeg"
-                      alt="True Life Global Logo"
-                      width={36}
-                      height={36}
-                      className="w-full h-full object-contain rounded-md"
-                    />
-                  </div>
-                  <div>
-                    <span className="font-display text-sm font-bold text-foreground block leading-tight">
-                      True Life<span className="text-[#0066cc]"> Global</span>
-                    </span>
-                    <span className="text-[8px] font-mono text-accent-readable uppercase tracking-wider block font-semibold mt-0.5">
-                      Clarity Today. Growth Tomorrow.
-                    </span>
-                  </div>
-                </a>
+    {/* Mobile menu Drawer */}
+    <AnimatePresence>
+      {isMobileOpen && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-navy-950/60 backdrop-blur-sm lg:hidden z-[90]"
+            onClick={closeMobile}
+            aria-hidden="true"
+          />
+          {/* Drawer container */}
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.25 }}
+            className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-background border-l border-border shadow-xl lg:hidden z-[100] overflow-y-auto"
+          >
+            <div className="flex items-center justify-between p-4 sm:p-5 border-b border-border">
+              <a href="/" onClick={closeMobile} className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-white p-1 shadow-sm border border-border flex-shrink-0 overflow-hidden">
+                  <Image
+                    src="/videos/logotruelifeglobal.jpeg"
+                    alt="True Life Global Logo"
+                    width={36}
+                    height={36}
+                    className="w-full h-full object-contain rounded-md"
+                  />
+                </div>
+                <div>
+                  <span className="font-display text-sm font-bold text-foreground block leading-tight">
+                    True Life<span className="text-[#0066cc]"> Global</span>
+                  </span>
+                  <span className="text-[8px] font-mono text-accent-readable uppercase tracking-wider block font-semibold mt-0.5">
+                    Clarity Today. Growth Tomorrow.
+                  </span>
+                </div>
+              </a>
+              <button
+                onClick={closeMobile}
+                className="p-2 rounded-lg text-foreground-secondary hover:text-foreground transition-colors"
+                aria-label="Close menu"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+            <div className="p-5 flex flex-col gap-1.5">
+              {NAV_LINKS.map((link) => {
+                const isAnchor = link.href.startsWith("/#") || link.href.startsWith("#");
+                const targetId = isAnchor ? link.href.split("#")[1] : null;
+
+                const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                  closeMobile();
+
+                  if (isAnchor && targetId) {
+                    const isHomepage = window.location.pathname === "/";
+                    if (isHomepage) {
+                      e.preventDefault();
+                      // Wait for overflow: hidden to clear from the body
+                      setTimeout(() => {
+                        const element = document.getElementById(targetId);
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth" });
+                        }
+                        window.history.pushState(null, "", link.href);
+                      }, 80);
+                    }
+                  }
+                };
+
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={handleLinkClick}
+                    className="px-4 py-3.5 text-base font-medium text-foreground-secondary hover:text-foreground hover:bg-accent-tint rounded-xl transition-all"
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
+              <div className="mt-6 pt-6 border-t border-border">
                 <button
-                  onClick={closeMobile}
-                  className="p-2 rounded-lg text-foreground-secondary hover:text-foreground transition-colors"
-                  aria-label="Close menu"
+                  onClick={() => {
+                    closeMobile();
+                    if (onBookConsultation) {
+                      onBookConsultation();
+                    } else {
+                      window.location.href = "/#contact";
+                    }
+                  }}
+                  className="btn-wow-effect block w-full text-center px-6 py-4 text-sm font-semibold rounded-full bg-[#0066cc] text-white hover:bg-[#0055bb] cursor-pointer"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
+                  Book a Consultation
                 </button>
               </div>
-              <div className="p-5 flex flex-col gap-1.5">
-                {NAV_LINKS.map((link) => {
-                  const isAnchor = link.href.startsWith("/#") || link.href.startsWith("#");
-                  const targetId = isAnchor ? link.href.split("#")[1] : null;
-
-                  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-                    closeMobile();
-
-                    if (isAnchor && targetId) {
-                      const isHomepage = window.location.pathname === "/";
-                      if (isHomepage) {
-                        e.preventDefault();
-                        // Wait for overflow: hidden to clear from the body
-                        setTimeout(() => {
-                          const element = document.getElementById(targetId);
-                          if (element) {
-                            element.scrollIntoView({ behavior: "smooth" });
-                          }
-                          window.history.pushState(null, "", link.href);
-                        }, 80);
-                      }
-                    }
-                  };
-
-                  return (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      onClick={handleLinkClick}
-                      className="px-4 py-3.5 text-base font-medium text-foreground-secondary hover:text-foreground hover:bg-accent-tint rounded-xl transition-all"
-                    >
-                      {link.label}
-                    </a>
-                  );
-                })}
-                <div className="mt-6 pt-6 border-t border-border">
-                  <button
-                    onClick={() => {
-                      closeMobile();
-                      if (onBookConsultation) {
-                        onBookConsultation();
-                      } else {
-                        window.location.href = "/#contact";
-                      }
-                    }}
-                    className="btn-wow-effect block w-full text-center px-6 py-4 text-sm font-semibold rounded-full bg-[#0066cc] text-white hover:bg-[#0055bb] cursor-pointer"
-                  >
-                    Book a Consultation
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </nav>
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  </>
   );
 }
