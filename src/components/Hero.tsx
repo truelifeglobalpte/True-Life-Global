@@ -77,7 +77,7 @@ export default function Hero() {
             muted
             loop
             playsInline
-            className={`absolute top-1/2 left-1/2 w-[100vh] h-[100vw] object-cover transition-opacity duration-1000 ease-in-out ${
+            className={`absolute top-1/2 left-1/2 w-[100vmax] h-[100vmax] object-cover transition-opacity duration-1000 ease-in-out ${
               idx === activeSlide ? "opacity-100" : "opacity-0"
             }`}
             style={{
