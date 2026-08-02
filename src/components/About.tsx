@@ -22,16 +22,6 @@ export default function About() {
           {/* LEFT: Text Content (7 columns on desktop) */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* Small top label */}
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-xs font-mono uppercase tracking-[0.15em] text-accent font-semibold"
-            >
-              About Us
-            </motion.p>
-
             {/* Main Editorial Heading */}
             <motion.h2
               initial={{ opacity: 0, y: 12 }}
@@ -44,6 +34,16 @@ export default function About() {
                 you can count on
               </span>
             </motion.h2>
+
+            {/* Small top label */}
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              className="text-xs font-mono uppercase tracking-[0.15em] text-accent font-semibold"
+            >
+              About Us
+            </motion.p>
 
             {/* Main body text */}
             <motion.div
