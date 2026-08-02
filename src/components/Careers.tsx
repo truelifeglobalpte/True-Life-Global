@@ -3,7 +3,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import TiltCard from "./TiltCard";
 
 const BENEFITS = [
   {
@@ -177,7 +176,7 @@ export default function Careers() {
               transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="w-full max-w-[440px] aspect-[4/5] md:aspect-[3/4] relative"
             >
-              <TiltCard className="w-full h-full rounded-[2rem] overflow-hidden shadow-xl border border-card-border relative group">
+              <div className="interactive-glow-card w-full h-full rounded-[2rem] overflow-hidden shadow-xl border border-card-border relative group">
                 <Image
                   src="/singapore-office-team.png"
                   alt="True Life Global Careers Team"
@@ -202,7 +201,7 @@ export default function Careers() {
                     <p className="text-xs font-bold text-white tracking-wide mt-1 leading-none">A place to grow, learn &amp; lead.</p>
                   </div>
                 </div>
-              </TiltCard>
+              </div>
             </motion.div>
           </div>
 

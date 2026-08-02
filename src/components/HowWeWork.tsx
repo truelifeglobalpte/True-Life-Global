@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { STEPS } from "@/lib/constants";
-import TiltCard from "./TiltCard";
 
 const STEP_ICONS = [
   // Consultation
@@ -67,7 +66,7 @@ export default function HowWeWork() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <TiltCard className="h-full rounded-3xl bg-card-bg border border-card-border shadow-sm group">
+              <div className="interactive-glow-card h-full rounded-3xl bg-card-bg border border-card-border shadow-sm group">
                 <div className="p-8 h-full flex flex-col justify-between">
                   <div>
                     {/* Header Row: Icon Badge & Subtle Step Number Indicator */}
@@ -97,7 +96,7 @@ export default function HowWeWork() {
                     <span className="w-2 h-2 rounded-full bg-accent/20 group-hover:bg-accent group-hover:scale-125 transition-all duration-300" />
                   </div>
                 </div>
-              </TiltCard>
+              </div>
             </motion.div>
           ))}
         </div>

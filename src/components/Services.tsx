@@ -4,8 +4,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { SERVICES } from "@/lib/constants";
 
-import TiltCard from "./TiltCard";
-
 export default function Services() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -59,7 +57,7 @@ export default function Services() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <TiltCard className="h-full rounded-3xl premium-card group">
+              <div className="interactive-glow-card h-full rounded-3xl premium-card group">
                 <div className="p-8 h-full">
                   {/* Index & Top line */}
                   <div className="flex items-center justify-between">
@@ -91,7 +89,7 @@ export default function Services() {
                     ))}
                   </div>
                 </div>
-              </TiltCard>
+              </div>
             </motion.div>
           ))}
         </div>
