@@ -28,21 +28,13 @@ export default function Services() {
           OUR SERVICES
         </motion.p>
 
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 12 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight max-w-2xl"
-        >
-          Our Services
-        </motion.h2>
+
 
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="mt-4 text-lg text-foreground-secondary leading-relaxed max-w-2xl"
+          className="mt-2 text-lg text-foreground-secondary leading-relaxed max-w-2xl"
         >
           Professional services tailored for Singapore businesses, spanning financial compliance
           to reliable logistics.
