@@ -70,7 +70,7 @@ export default function Navbar({ onBookConsultation }: NavbarProps) {
             <div className="flex flex-col justify-center">
               <span
                 className={`font-display text-base sm:text-lg lg:text-[1.35rem] font-bold tracking-tight leading-none transition-colors duration-300 ${
-                  isScrolled ? "text-slate-900" : "text-white"
+                  isScrolled ? "text-foreground" : "text-white"
                 }`}
               >
                 True Life Global <span className="hidden sm:inline text-xs sm:text-sm font-semibold ml-0.5">Pte. Ltd.</span>
