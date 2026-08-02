@@ -8,6 +8,7 @@ import Services from "@/components/Services";
 import HowWeWork from "@/components/HowWeWork";
 import WhyUs from "@/components/WhyUs";
 import Director from "@/components/Director";
+import Testimonials from "@/components/Testimonials";
 import Careers from "@/components/Careers";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
@@ -29,6 +30,7 @@ export default function Home() {
         <Services />
         <HowWeWork />
         <Director />
+        <Testimonials />
         <WhyUs />
         <Careers />
         <FAQ />
