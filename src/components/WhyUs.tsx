@@ -57,7 +57,7 @@ export default function WhyUs() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="mt-4 text-lg text-foreground-secondary leading-relaxed max-w-2xl"
         >
-          What sets us apart — substance over promises, trust over transactions.
+          What sets us apart: substance over promises, trust over transactions.
         </motion.p>
 
         {/* Grid */}

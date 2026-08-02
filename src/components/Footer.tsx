@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
             <p className="mt-4 text-sm leading-relaxed max-w-md text-white/60">
               True Life Global Pte. Ltd. is a Singapore-registered company delivering trusted
-              financial expertise and reliable courier support — committed to precision, compliance,
+              financial expertise and reliable courier support, committed to precision, compliance,
               and strategic clarity for your business.
             </p>
             <p className="mt-4 text-xs font-mono uppercase tracking-wider text-white/40">

@@ -137,7 +137,7 @@ export default function Contact() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="mt-4 text-lg text-foreground-secondary"
         >
-          Reach out for a free consultation — we respond within one business day.
+          Reach out for a free consultation. We respond within one business day.
         </motion.p>
 
         <div className="mt-12 grid lg:grid-cols-[1fr_380px] gap-12">

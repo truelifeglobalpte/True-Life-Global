@@ -48,7 +48,7 @@ export const SERVICES = [
     title: "Courier Services & Logistics",
     slug: "courier",
     description:
-      "Reliable document and parcel delivery within Singapore — ideal for businesses needing secure, time-sensitive courier solutions.",
+      "Reliable document and parcel delivery within Singapore, ideal for businesses needing secure, time-sensitive courier solutions.",
     tags: ["Document Delivery", "Parcel Services", "Secure Handling"],
   },
 ] as const;
@@ -83,7 +83,7 @@ export const WHY_US = [
   {
     title: "Two Essential Services Under One Roof",
     description:
-      "Accounting, Auditing & Tax Consultancy together with Courier & Delivery — one dependable partner for financial and logistics support.",
+      "Accounting, Auditing & Tax Consultancy together with Courier & Delivery, acting as one dependable partner for financial and logistics support.",
   },
   {
     title: "Compliance-First Approach",
@@ -103,7 +103,7 @@ export const WHY_US = [
   {
     title: "Built for Singapore Businesses",
     description:
-      "From GST and ACRA compliance to last-mile delivery across Singapore — practical solutions that match real business needs.",
+      "From GST and ACRA compliance to last-mile delivery across Singapore, providing practical solutions that match real business needs.",
   },
 ] as const;
 
@@ -131,7 +131,7 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      "True Life Global delivers exactly what they promise — reliable, compliant, and professional. Their team managed our bookkeeping and payroll with precision, giving us full peace of mind.",
+      "True Life Global delivers exactly what they promise: reliable, compliant, and professional. Their team managed our bookkeeping and payroll with precision, giving us full peace of mind.",
     name: "Katijah Beebi Binte Mohamed Hanifa",
     role: "Business Owner, Singapore",
     initials: "KB",
@@ -147,22 +147,22 @@ export const FAQ_ITEMS = [
   {
     question: "Do you support international clients?",
     answer:
-      "Yes — we work with Singapore-incorporated entities regardless of where their directors or shareholders are based. We regularly assist foreign entrepreneurs establishing and managing their Singapore business presence.",
+      "Yes, we work with Singapore-incorporated entities regardless of where their directors or shareholders are based. We regularly assist foreign entrepreneurs establishing and managing their Singapore business presence.",
   },
   {
     question: "How do you ensure compliance?",
     answer:
-      "Every engagement is executed against current ACRA and IRAS requirements. We stay updated on regulatory changes and proactively inform clients of any compliance obligations — ensuring your business is always audit-ready.",
+      "Every engagement is executed against current ACRA and IRAS requirements. We stay updated on regulatory changes and proactively inform clients of any compliance obligations, ensuring your business is always audit-ready.",
   },
   {
     question: "How do we get started?",
     answer:
-      "Simply book a consultation through the contact form on our website or reach out via email or WhatsApp. We will schedule an initial discovery session to understand your needs and propose a tailored solution — typically within one business day.",
+      "Simply book a consultation through the contact form on our website or reach out via email or WhatsApp. We will schedule an initial discovery session to understand your needs and propose a tailored solution, typically within one business day.",
   },
   {
     question: "What industries do you specialise in?",
     answer:
-      "We primarily serve SMEs and startups across professional services, trading, e-commerce, and logistics. However, our financial expertise extends across diverse sectors — contact us and we will advise whether we are the right fit for your business.",
+      "We primarily serve SMEs and startups across professional services, trading, e-commerce, and logistics. However, our financial expertise extends across diverse sectors. Contact us and we will advise whether we are the right fit for your business.",
   },
 ] as const;
 

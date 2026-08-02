@@ -46,7 +46,7 @@ export default function Services() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="mt-4 text-lg text-foreground-secondary leading-relaxed max-w-2xl"
         >
-          Professional services tailored for Singapore businesses — from financial compliance
+          Professional services tailored for Singapore businesses, spanning financial compliance
           to reliable logistics.
         </motion.p>
 
