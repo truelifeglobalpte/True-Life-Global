@@ -62,7 +62,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] flex items-center justify-start overflow-hidden bg-black select-none"
+      className="relative min-h-[100dvh] sm:min-h-0 sm:h-[calc(100vh-5rem)] flex items-center justify-start overflow-hidden bg-black select-none"
     >
       {/* Video Background Layer */}
       <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
@@ -77,10 +77,17 @@ export default function Hero() {
             muted
             loop
             playsInline
-            className={`absolute top-1/2 left-1/2 w-[100vmax] h-[100vmax] object-cover transition-opacity duration-1000 ease-in-out ${
+            className={`absolute transition-opacity duration-1000 ease-in-out ${
               idx === activeSlide ? "opacity-100" : "opacity-0"
             }`}
             style={{
+              top: "50%",
+              left: "50%",
+              width: "max(100vw, 100vh)",
+              height: "max(100vw, 100vh)",
+              minWidth: "max(100vw, 100vh)",
+              minHeight: "max(100vw, 100vh)",
+              objectFit: "cover",
               transform: "translate(-50%, -50%) rotate(-90deg)",
             }}
           />
