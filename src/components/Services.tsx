@@ -27,7 +27,7 @@ export default function Services() {
           transition={{ duration: 0.5 }}
           className="text-xs font-mono uppercase tracking-[0.15em] text-accent-readable mb-4"
         >
-          What We Offer
+          OUR SERVICES
         </motion.p>
 
         {/* Heading */}
@@ -37,7 +37,7 @@ export default function Services() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight max-w-2xl"
         >
-          Our Services
+          Services tailored <span className="editorial-text font-normal text-accent italic">for your growth</span>
         </motion.h2>
 
         <motion.p

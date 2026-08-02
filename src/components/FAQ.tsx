@@ -91,7 +91,7 @@ export default function FAQ() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight"
         >
-          Frequently asked questions
+          Frequently asked <span className="editorial-text font-normal text-accent italic">questions</span>
         </motion.h2>
 
         {/* Accordion */}

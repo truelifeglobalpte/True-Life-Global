@@ -37,7 +37,7 @@ export default function WhyUs() {
           transition={{ duration: 0.5 }}
           className="text-xs font-mono uppercase tracking-[0.15em] text-accent-readable mb-4"
         >
-          Our Advantage
+          OUR ADVANTAGE
         </motion.p>
 
         {/* Heading */}
@@ -47,8 +47,7 @@ export default function WhyUs() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight max-w-2xl"
         >
-          Why Choose{" "}
-          <span className="editorial-text font-normal text-accent">True Life Global?</span>
+          Why partner with <span className="editorial-text font-normal text-accent italic">True Life Global?</span>
         </motion.h2>
 
         <motion.p
