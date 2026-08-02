@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import About from "@/components/About";
 import Director from "@/components/Director";
+import SubPageHero from "@/components/SubPageHero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,10 +15,13 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <div className="pt-16">
-        <About />
-        <Director />
-      </div>
+      <SubPageHero 
+        title="About True Life Global" 
+        subtitle="A specialized Singapore partner delivering corporate advisory, audit services, and express logistics." 
+        badge="ABOUT US" 
+      />
+      <About />
+      <Director />
       <Footer />
     </>
   );

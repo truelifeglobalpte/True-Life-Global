@@ -73,14 +73,11 @@ export default function HowWeWork({ onBookConsultation }: HowWeWorkProps) {
               <div className="interactive-glow-card h-full rounded-3xl bg-card-bg border border-card-border shadow-sm group">
                 <div className="p-8 h-full flex flex-col justify-between">
                   <div>
-                    {/* Header Row: Icon Badge & Subtle Step Number Indicator */}
-                    <div className="flex items-center justify-between mb-8">
+                    {/* Header Row: Icon Badge */}
+                    <div className="mb-8">
                       <div className="w-11 h-11 rounded-2xl flex items-center justify-center bg-accent-tint text-accent border border-accent/10 transition-transform duration-300 group-hover:scale-105">
                         {STEP_ICONS[i]}
                       </div>
-                      <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-accent-tint text-accent border border-accent/10">
-                        Step {String(step.number).padStart(2, "0")}
-                      </span>
                     </div>
 
                     {/* Title */}
@@ -92,12 +89,6 @@ export default function HowWeWork({ onBookConsultation }: HowWeWorkProps) {
                     <p className="mt-3.5 text-sm text-foreground-secondary leading-relaxed font-light">
                       {step.description}
                     </p>
-                  </div>
-
-                  {/* Bottom design detail (thin line + small details) */}
-                  <div className="mt-8 pt-5 border-t border-border/80 flex items-center justify-between text-[11px] font-mono text-foreground-secondary/60">
-                    <span>Phase 0{step.number}</span>
-                    <span className="w-2 h-2 rounded-full bg-accent/20 group-hover:bg-accent group-hover:scale-125 transition-all duration-300" />
                   </div>
                 </div>
               </div>

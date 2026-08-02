@@ -57,13 +57,13 @@ export default function Navbar({ onBookConsultation }: NavbarProps) {
             className="flex items-center gap-3 sm:gap-3.5 group"
             aria-label="True Life Global - Home"
           >
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-[3.25rem] lg:h-[3.25rem] rounded-full bg-white p-0.5 sm:p-1 shadow-md border border-gray-100 flex-shrink-0 overflow-hidden group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-[3.25rem] lg:h-[3.25rem] rounded-full bg-white flex-shrink-0 overflow-hidden group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shadow-sm">
               <Image
                 src="/videos/logotruelifeglobal.jpeg"
                 alt="True Life Global Logo"
                 width={52}
                 height={52}
-                className="w-[90%] h-[90%] object-contain rounded-full"
+                className="w-full h-full object-contain rounded-full"
                 priority
               />
             </div>
@@ -73,7 +73,7 @@ export default function Navbar({ onBookConsultation }: NavbarProps) {
                   isScrolled ? "text-slate-900" : "text-white"
                 }`}
               >
-                True Life<span className="text-[#0066cc]"> Global</span> <span className={`hidden sm:inline text-xs sm:text-sm font-semibold ml-0.5 ${isScrolled ? "text-slate-500" : "text-white/80"}`}>Pte. Ltd.</span>
+                True Life Global <span className="hidden sm:inline text-xs sm:text-sm font-semibold ml-0.5">Pte. Ltd.</span>
               </span>
               <span
                 className={`text-[9px] sm:text-[10px] lg:text-[11px] font-sans tracking-[0.1em] uppercase font-bold transition-colors duration-300 mt-1 lg:mt-1.5 ${
@@ -230,13 +230,13 @@ export default function Navbar({ onBookConsultation }: NavbarProps) {
           >
             <div className="flex items-center justify-between p-4 sm:p-5 border-b border-border">
               <a href="/" onClick={closeMobile} className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-white p-1 shadow-sm border border-border flex-shrink-0 overflow-hidden">
+                <div className="w-9 h-9 rounded-full bg-white flex-shrink-0 overflow-hidden shadow-sm">
                   <Image
                     src="/videos/logotruelifeglobal.jpeg"
                     alt="True Life Global Logo"
                     width={36}
                     height={36}
-                    className="w-full h-full object-contain rounded-md"
+                    className="w-full h-full object-contain rounded-full"
                   />
                 </div>
                 <div>

@@ -7,13 +7,13 @@ import Image from "next/image";
 const LEADERS = [
   {
     name: "Dr. Kannan Sivadeeskannan K",
-    role: "Chief Executive Officer (CEO)",
+    role: "Chief Executive Officer",
     image: "/coo.jpg",
     imagePosition: "object-[center_10%]",
     bio: [
-      "Dr. Kannan Sivadeeskannan K serves as the Chief Executive Officer (CEO) of True Life Global Pte. Ltd., where he oversees the company's day-to-day operations, business processes, and strategic execution. He is committed to building efficient systems, enhancing organizational performance, and driving sustainable business growth.",
-      "He holds a B.B.A., LL.B. (Hons) from Bharath Institute of Higher Education and Research, Chennai, and has been awarded an Honorary Doctorate in Social Services. He is also pursuing an MBA in Human Resource Management at Alagappa University.",
-      "As CEO, he works closely with the executive leadership team to optimize operations, ensure regulatory compliance, enhance client satisfaction, and support the long-term vision of True Life Global Pte. Ltd.",
+      "Dr. Sivadeeskannan K is the Chief Executive Officer (CEO) of True Life Global Pte. Ltd., where he manages the daily operations, business processes, and strategic initiatives of the company. He is dedicated to creating efficient systems, improving organizational performance, and fostering sustainable business growth.",
+      "He earned a B.B.A. and LL.B. (Hons) from Bharath Institute of Higher Education and Research in Chennai, and has received an Honorary Doctorate in Social Services. Additionally, he is currently pursuing an MBA in Human Resource Management at Alagappa University.",
+      "In his role as CEO, he collaborates closely with the executive leadership team to streamline operations, ensure compliance with regulations, enhance client satisfaction, and support the long-term goals of True Life Global Pte. Ltd.",
     ],
     badges: ["Honorary Doctorate", "BBA LL.B (Hons)", "MBA (HRM)"],
     tags: ["Honorary Doctorate", "Business Management", "Corporate Governance", "Legal Compliance", "HR Management"],
@@ -25,13 +25,12 @@ const LEADERS = [
   },
   {
     name: "Soundarrajan Vaithiyanathan",
-    role: "Founder",
+    role: "Founder & Chief Operating Officer",
     image: "/founder-ceo.jpg",
     imagePosition: "object-[center_25%]",
     bio: [
-      "Soundarrajan Vaithiyanathan is the visionary Founder of True Life Global Pte. Ltd., a Singapore-incorporated company delivering integrated accounting and logistics services. With over 14 years of progressive financial and operations experience across multinational corporations in Singapore and India, he brings deep expertise in financial management, compliance, and business operations.",
-      "His journey spans industry leaders including Genpact, Capgemini, Teleperformance, and Rohlig Blue Service, where he managed high-volume financial transactions, led cross-functional teams, and implemented SAP ERP systems across global environments. He is a certified US GAAP professional from Ernst & Young (2026) and holds an MBA.",
-      "Driven by a passion for empowering SMEs with reliable financial guidance, Soundarrajan founded True Life Global to bridge the gap between professional financial services and everyday business needs in Singapore.",
+      "Soundarrajan Vaithiyanathan is the innovative Founder & Chief operating officer of True Life Global Pte. Ltd a company based in Singapore that provides comprehensive accounting and logistics solutions. With more than 14 years of extensive experience in finance and operations within multinational firms in Singapore and India, he possesses significant knowledge in financial management, compliance, and business operations.",
+      "His career includes tenures at industry giants such as Genpact, Capgemini, Teleperformance, and Rohlig Blue Service, where he oversaw high-volume financial transactions, directed cross-functional teams, and executed SAP ERP systems in global settings. He is a certified US GAAP professional from Ernst & Young (2026) and has earned an MBA.",
     ],
     badges: ["US GAAP (EY)", "MBA", "14+ Yrs Experience"],
     tags: ["Genpact", "Capgemini", "Teleperformance", "Rohlig Blue Service", "Ernst & Young"],
@@ -73,21 +72,21 @@ export default function Director() {
           </h2>
         </motion.div>
 
-        {/* Leadership Cards (Image and Content separate side-by-side cards) */}
+        {/* Leadership Cards (Side-by-side layout with mid-sized, non-stretching portraits) */}
         <div className="space-y-12 sm:space-y-16">
           {LEADERS.map((leader, idx) => (
             <div
               key={leader.name}
-              className="grid md:grid-cols-12 gap-6 lg:gap-8 items-stretch"
+              className="grid md:grid-cols-12 gap-6 lg:gap-8 items-start"
             >
-              {/* Separate Portrait Image Card (Left: 4 columns) */}
+              {/* Portrait Image Card (Left: 4 columns, mid-sized) */}
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.65, delay: 0.15 + idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="md:col-span-4 min-h-[360px] md:min-h-full aspect-[4/5] md:aspect-auto"
+                className="md:col-span-4 w-full max-w-[280px] md:max-w-none mx-auto"
               >
-                <div className="h-full rounded-3xl bg-card-bg border border-card-border overflow-hidden relative shadow-sm interactive-glow-card group">
+                <div className="aspect-[4/5] rounded-3xl bg-card-bg border border-card-border overflow-hidden relative shadow-sm interactive-glow-card group">
                   {/* Top accent gradient bar */}
                   <div className="h-1 w-full bg-gradient-to-r from-accent/60 via-accent to-accent/30 absolute top-0 left-0 z-20" />
                   
@@ -107,7 +106,7 @@ export default function Director() {
                 </div>
               </motion.div>
 
-              {/* Separate Bio & Info Card (Right: 8 columns) */}
+              {/* Bio & Info Card (Right: 8 columns) */}
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -125,18 +124,6 @@ export default function Director() {
                         {leader.name}
                       </h3>
                       <p className="text-xs sm:text-sm text-accent font-semibold mt-1.5">{leader.role}</p>
-                      
-                      {/* Badges */}
-                      <div className="flex flex-wrap gap-1.5 mt-3">
-                        {leader.badges.map((b) => (
-                          <span
-                            key={b}
-                            className="px-2.5 py-0.5 text-[9px] sm:text-[10px] font-mono uppercase tracking-wide bg-accent-tint text-accent rounded-full border border-accent/15"
-                          >
-                            {b}
-                          </span>
-                        ))}
-                      </div>
                     </div>
 
                     {/* Bio Description */}
@@ -147,33 +134,6 @@ export default function Director() {
                     </div>
                   </div>
 
-                  {/* Bottom Details Row (Stats & Tags) */}
-                  <div className="mt-8 pt-6 border-t border-border/85">
-                    {/* Stats Row */}
-                    <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
-                      {leader.stats.map((s) => (
-                        <div
-                          key={s.label}
-                          className="p-3 rounded-2xl bg-background border border-border text-center"
-                        >
-                          <p className="text-sm sm:text-base font-display font-bold text-accent leading-none">{s.stat}</p>
-                          <p className="text-[10px] text-foreground-secondary mt-1.5 leading-snug">{s.label}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Tags */}
-                    <div className="mt-6 flex flex-wrap gap-1.5">
-                      {leader.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2.5 py-1 text-[9px] sm:text-[10px] font-mono tracking-wide text-foreground-secondary bg-background rounded-lg border border-border"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               </motion.div>
             </div>

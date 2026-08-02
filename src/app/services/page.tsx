@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SubPageHero from "@/components/SubPageHero";
 import { SERVICES } from "@/lib/constants";
 import type { Metadata } from "next";
 
@@ -13,21 +14,13 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 pt-24 pb-16 bg-background">
+      <SubPageHero 
+        title="Services Tailored to Your Business" 
+        subtitle="We provide Singapore SMEs with corporate accounting services and dependable express courier logistics." 
+        badge="OUR SERVICES" 
+      />
+      <main className="flex-1 py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-mono uppercase tracking-[0.15em] text-accent-readable">
-              True Life Global
-            </span>
-            <h1 className="mt-4 text-4xl sm:text-5xl font-display font-bold text-foreground">
-              Services Tailored to Your Business
-            </h1>
-            <p className="mt-4 text-lg text-foreground-secondary leading-relaxed">
-              We provide Singapore SMEs with accurate financial compliance work and
-              dependable delivery logistics — handled with equal dedication to quality.
-            </p>
-          </div>
-
           <div className="grid md:grid-cols-3 gap-8">
             {SERVICES.map((service) => (
               <div

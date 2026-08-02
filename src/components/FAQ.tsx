@@ -73,7 +73,7 @@ export default function FAQ() {
       ref={ref}
       className="section-padding bg-background-alt border-t border-border"
     >
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section label */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}

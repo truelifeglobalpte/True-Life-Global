@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
+import SubPageHero from "@/components/SubPageHero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,10 +15,13 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <div className="pt-16">
-        <Contact />
-        <FAQ />
-      </div>
+      <SubPageHero 
+        title="Let's Connect" 
+        subtitle="Get a free consultation for your corporate service or logistics needs in Singapore." 
+        badge="CONTACT US" 
+      />
+      <Contact />
+      <FAQ />
       <Footer />
     </>
   );

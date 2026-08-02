@@ -14,13 +14,13 @@ export default function Footer() {
           {/* Company info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white p-1 shadow-sm flex-shrink-0 overflow-hidden">
+              <div className="w-10 h-10 rounded-full bg-white flex-shrink-0 overflow-hidden shadow-sm">
                 <Image
                   src="/videos/logotruelifeglobal.jpeg"
                   alt="True Life Global Logo"
                   width={40}
                   height={40}
-                  className="w-full h-full object-contain rounded-lg"
+                  className="w-full h-full object-contain rounded-full"
                 />
               </div>
               <div>
