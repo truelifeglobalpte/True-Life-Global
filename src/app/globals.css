@@ -358,3 +358,25 @@ h1, h2, h3, h4 {
     padding: 10rem 4rem;
   }
 }
+
+/* ============================================
+   WhatsApp Pulse & Glow Animation
+   ============================================ */
+@keyframes whatsapp-sonar {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-whatsapp-pulse {
+  animation: whatsapp-sonar 2s infinite ease-in-out;
+}
