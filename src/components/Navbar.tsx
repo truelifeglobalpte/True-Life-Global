@@ -125,7 +125,7 @@ export default function Navbar() {
             {/* Book consultation CTA */}
             <a
               href="/#contact"
-              className={`inline-flex items-center px-6 py-2.5 text-sm font-semibold rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 ${
+              className={`btn-wow-effect inline-flex items-center px-6 py-2.5 text-sm font-semibold rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 ${
                 isScrolled
                   ? "bg-[#0066cc] text-white hover:bg-[#0055bb]"
                   : "bg-white text-navy-950 hover:bg-white/90"
@@ -250,7 +250,7 @@ export default function Navbar() {
                   <a
                     href="/#contact"
                     onClick={closeMobile}
-                    className="block w-full text-center px-6 py-4 text-sm font-semibold rounded-full bg-[#0066cc] text-white hover:bg-[#0055bb] transition-all"
+                    className="btn-wow-effect block w-full text-center px-6 py-4 text-sm font-semibold rounded-full bg-[#0066cc] text-white hover:bg-[#0055bb]"
                   >
                     Book a Consultation
                   </a>

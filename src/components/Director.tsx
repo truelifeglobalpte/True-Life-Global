@@ -73,87 +73,110 @@ export default function Director() {
           </h2>
         </motion.div>
 
-        {/* Leadership Cards */}
-        <div className="grid lg:grid-cols-2 gap-8 xl:gap-12">
+        {/* Leadership Cards (Image and Content separate side-by-side cards) */}
+        <div className="space-y-12 sm:space-y-16">
           {LEADERS.map((leader, idx) => (
-            <motion.div
+            <div
               key={leader.name}
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.65, delay: 0.15 + idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-3xl bg-card-bg border border-card-border shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+              className="grid md:grid-cols-12 gap-6 lg:gap-8 items-stretch"
             >
-              {/* Top accent gradient bar */}
-              <div className="h-1 w-full bg-gradient-to-r from-accent/60 via-accent to-accent/30" />
+              {/* Separate Portrait Image Card (Left: 4 columns) */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.65, delay: 0.15 + idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                className="md:col-span-4 min-h-[360px] md:min-h-full aspect-[4/5] md:aspect-auto"
+              >
+                <div className="h-full rounded-3xl bg-card-bg border border-card-border overflow-hidden relative shadow-sm interactive-glow-card group">
+                  {/* Top accent gradient bar */}
+                  <div className="h-1 w-full bg-gradient-to-r from-accent/60 via-accent to-accent/30 absolute top-0 left-0 z-20" />
+                  
+                  <Image
+                    src={leader.image!}
+                    alt={leader.name}
+                    fill
+                    className={`object-cover transition-transform duration-700 group-hover:scale-103 ${leader.imagePosition}`}
+                    priority
+                  />
+                  {/* Visual frame highlights */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-5 left-5 z-10">
+                    <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-white/60">True Life Global</p>
+                    <p className="text-sm font-bold text-white tracking-wide mt-0.5">{leader.role}</p>
+                  </div>
+                </div>
+              </motion.div>
 
-              <div className="p-5 sm:p-8">
-                {/* Profile header */}
-                <div className="flex flex-col xs:flex-row sm:flex-row items-start sm:items-center gap-4 sm:gap-5 mb-6 sm:mb-7">
-                  {/* Photo */}
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-card-border flex-shrink-0 shadow-sm">
-                    <Image
-                      src={leader.image!}
-                      alt={leader.name}
-                      width={96}
-                      height={96}
-                      className={`w-full h-full object-cover ${leader.imagePosition}`}
-                      priority
-                    />
+              {/* Separate Bio & Info Card (Right: 8 columns) */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.65, delay: 0.2 + idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                className="md:col-span-8"
+              >
+                <div className="rounded-3xl bg-card-bg border border-card-border shadow-sm p-6 sm:p-8 flex flex-col justify-between relative h-full interactive-glow-card">
+                  {/* Top accent gradient bar */}
+                  <div className="h-1 w-full bg-gradient-to-r from-accent/60 via-accent to-accent/30 absolute top-0 left-0 rounded-t-3xl" />
+
+                  <div>
+                    {/* Name & Role Header */}
+                    <div className="pt-2">
+                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-foreground leading-tight">
+                        {leader.name}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-accent font-semibold mt-1.5">{leader.role}</p>
+                      
+                      {/* Badges */}
+                      <div className="flex flex-wrap gap-1.5 mt-3">
+                        {leader.badges.map((b) => (
+                          <span
+                            key={b}
+                            className="px-2.5 py-0.5 text-[9px] sm:text-[10px] font-mono uppercase tracking-wide bg-accent-tint text-accent rounded-full border border-accent/15"
+                          >
+                            {b}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Bio Description */}
+                    <div className="mt-6 space-y-4 text-sm sm:text-base text-foreground-secondary leading-relaxed font-light">
+                      {leader.bio.map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Name & Role */}
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-display font-bold text-foreground leading-tight">
-                      {leader.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-accent font-medium mt-1">{leader.role}</p>
-                    {/* Badges */}
-                    <div className="flex flex-wrap gap-1.5 mt-2 sm:mt-2.5">
-                      {leader.badges.map((b) => (
-                        <span
-                          key={b}
-                          className="px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-mono uppercase tracking-wide bg-accent-tint text-accent rounded-full border border-accent/15"
+                  {/* Bottom Details Row (Stats & Tags) */}
+                  <div className="mt-8 pt-6 border-t border-border/85">
+                    {/* Stats Row */}
+                    <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
+                      {leader.stats.map((s) => (
+                        <div
+                          key={s.label}
+                          className="p-3 rounded-2xl bg-background border border-border text-center"
                         >
-                          {b}
+                          <p className="text-sm sm:text-base font-display font-bold text-accent leading-none">{s.stat}</p>
+                          <p className="text-[10px] text-foreground-secondary mt-1.5 leading-snug">{s.label}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Tags */}
+                    <div className="mt-6 flex flex-wrap gap-1.5">
+                      {leader.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2.5 py-1 text-[9px] sm:text-[10px] font-mono tracking-wide text-foreground-secondary bg-background rounded-lg border border-border"
+                        >
+                          {tag}
                         </span>
                       ))}
                     </div>
                   </div>
                 </div>
-
-                {/* Stats Row */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 sm:mb-7">
-                  {leader.stats.map((s) => (
-                    <div
-                      key={s.label}
-                      className="p-2 sm:p-3 rounded-xl bg-background border border-border text-center"
-                    >
-                      <p className="text-xs sm:text-sm font-display font-bold text-accent leading-none">{s.stat}</p>
-                      <p className="text-[9px] sm:text-[10px] text-foreground-secondary mt-1 leading-snug">{s.label}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Bio */}
-                <div className="space-y-3 text-sm text-foreground-secondary leading-relaxed font-light">
-                  {leader.bio.map((para, i) => (
-                    <p key={i}>{para}</p>
-                  ))}
-                </div>
-
-                {/* Tags */}
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {leader.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-[10px] font-mono tracking-wide text-foreground-secondary bg-background rounded-full border border-border"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>

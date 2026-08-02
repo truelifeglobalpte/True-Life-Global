@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { STEPS } from "@/lib/constants";
+import TiltCard from "./TiltCard";
 
 const STEP_ICONS = [
   // Consultation
@@ -65,35 +66,38 @@ export default function HowWeWork() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group p-8 rounded-3xl bg-card-bg border border-card-border hover:border-accent/40 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between"
             >
-              <div>
-                {/* Header Row: Icon Badge & Subtle Step Number Indicator */}
-                <div className="flex items-center justify-between mb-8">
-                  <div className="w-11 h-11 rounded-2xl flex items-center justify-center bg-accent-tint text-accent border border-accent/10 transition-transform duration-300 group-hover:scale-105">
-                    {STEP_ICONS[i]}
+              <TiltCard className="h-full rounded-3xl bg-card-bg border border-card-border shadow-sm group">
+                <div className="p-8 h-full flex flex-col justify-between">
+                  <div>
+                    {/* Header Row: Icon Badge & Subtle Step Number Indicator */}
+                    <div className="flex items-center justify-between mb-8">
+                      <div className="w-11 h-11 rounded-2xl flex items-center justify-center bg-accent-tint text-accent border border-accent/10 transition-transform duration-300 group-hover:scale-105">
+                        {STEP_ICONS[i]}
+                      </div>
+                      <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-accent-tint text-accent border border-accent/10">
+                        Step {String(step.number).padStart(2, "0")}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg sm:text-xl font-display font-bold text-foreground group-hover:text-accent transition-colors duration-250 leading-snug">
+                      {step.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="mt-3.5 text-sm text-foreground-secondary leading-relaxed font-light">
+                      {step.description}
+                    </p>
                   </div>
-                  <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-accent-tint text-accent border border-accent/10">
-                    Step {String(step.number).padStart(2, "0")}
-                  </span>
+
+                  {/* Bottom design detail (thin line + small details) */}
+                  <div className="mt-8 pt-5 border-t border-border/80 flex items-center justify-between text-[11px] font-mono text-foreground-secondary/60">
+                    <span>Phase 0{step.number}</span>
+                    <span className="w-2 h-2 rounded-full bg-accent/20 group-hover:bg-accent group-hover:scale-125 transition-all duration-300" />
+                  </div>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-lg sm:text-xl font-display font-bold text-foreground group-hover:text-accent transition-colors duration-250 leading-snug">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="mt-3.5 text-sm text-foreground-secondary leading-relaxed font-light">
-                  {step.description}
-                </p>
-              </div>
-
-              {/* Bottom design detail (thin line + small details) */}
-              <div className="mt-8 pt-5 border-t border-border/80 flex items-center justify-between text-[11px] font-mono text-foreground-secondary/60">
-                <span>Phase 0{step.number}</span>
-                <span className="w-2 h-2 rounded-full bg-accent/20 group-hover:bg-accent group-hover:scale-125 transition-all duration-300" />
-              </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
@@ -115,7 +119,7 @@ export default function HowWeWork() {
           </div>
           <a
             href="/#contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-accent text-white hover:bg-accent-readable shadow-sm hover:shadow transition-all duration-150 whitespace-nowrap hover:-translate-y-0.5"
+            className="btn-wow-effect w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-accent text-white hover:bg-accent-readable shadow-sm hover:shadow transition-all duration-150 whitespace-nowrap hover:-translate-y-0.5"
           >
             Book a Consultation
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

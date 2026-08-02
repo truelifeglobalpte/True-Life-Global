@@ -9,21 +9,21 @@ const slides = [
     indexText: "01 / 03",
     badge: "CLARITY",
     title: "Clear Financials, Confident Decisions",
-    videoSrc: "/videos/frist.mp4",
+    videoSrc: "/videos/video_1.mp4",
   },
   {
     id: 2,
     indexText: "02 / 03",
     badge: "GROWTH",
     title: "Helping Singapore SMEs Grow with Confidence",
-    videoSrc: "/videos/second.mp4",
+    videoSrc: "/videos/video_2.webm",
   },
   {
     id: 3,
     indexText: "03 / 03",
     badge: "TRUST",
     title: "Precision, Compliance & Confidence Every Step",
-    videoSrc: "/videos/third.mp4",
+    videoSrc: "/videos/video_3.mp4",
   },
 ];
 
@@ -77,19 +77,9 @@ export default function Hero() {
             muted
             loop
             playsInline
-            className={`absolute transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
               idx === activeSlide ? "opacity-100" : "opacity-0"
             }`}
-            style={{
-              top: "50%",
-              left: "50%",
-              width: "100vh",
-              height: "100vw",
-              minWidth: "100vh",
-              minHeight: "100vw",
-              objectFit: "cover",
-              transform: "translate(-50%, -50%) rotate(-90deg)",
-            }}
           />
         ))}
         {/* Lighter gradient overlay to ensure readability while keeping video bright */}
@@ -132,7 +122,7 @@ export default function Hero() {
               <div className="pt-4 sm:pt-6 flex flex-col sm:flex-row gap-3.5 sm:gap-4 w-full sm:w-auto">
                 <a
                   href="/#contact"
-                  className="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full bg-[#0066cc] text-white hover:bg-[#0055bb] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
+                  className="btn-wow-effect inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-full bg-[#0066cc] text-white hover:bg-[#0055bb] shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
                 >
                   Book a Consultation
                   <svg

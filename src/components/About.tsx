@@ -65,7 +65,7 @@ export default function About() {
                 for every client.
               </p>
               <p>
-                At True Life Global, we believe in building long-term relationships, acting as a
+                At True Life Global, we believe in building long-term relationships — acting as a
                 trusted extension of your team whether managing financial records, providing tax
                 advisory services, supporting audit requirements, or delivering dependable courier
                 solutions across Singapore.
@@ -86,7 +86,7 @@ export default function About() {
                 </h3>
                 <p className="text-foreground-secondary leading-relaxed text-sm font-light">
                   To be a trusted global partner empowering businesses and individuals through seamless
-                  financial solutions and reliable delivery services, connecting lives, one transaction
+                  financial solutions and reliable delivery services — connecting lives, one transaction
                   at a time.
                 </p>
               </div>
@@ -97,7 +97,7 @@ export default function About() {
                   Our Mission
                 </h3>
                 <p className="text-foreground-secondary leading-relaxed text-sm font-light">
-                  Deliver expert accounting, auditing, tax, and courier services, simplifying compliance
+                  Deliver expert accounting, auditing, tax, and courier services — simplifying compliance
                   and empowering businesses to grow with confidence.
                 </p>
               </div>

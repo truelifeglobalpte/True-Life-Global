@@ -2,6 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
+import TiltCard from "./TiltCard";
 
 const BENEFITS = [
   {
@@ -57,52 +59,51 @@ export default function Careers() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Two-column layout: text left | benefits right */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        {/* Two-column layout: text left | image right */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          {/* LEFT: Heading + Copy */}
-          <div>
+          {/* LEFT: Heading, Copy, Benefits & CTAs (7 columns) */}
+          <div className="lg:col-span-7 space-y-6">
             {/* Section label */}
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-xs font-mono uppercase tracking-[0.15em] text-accent font-semibold mb-3"
+              className="text-xs font-mono uppercase tracking-[0.15em] text-accent font-semibold mb-2"
             >
-              Careers at True Life Global
+              Join Our Team
             </motion.p>
 
-            {/* Main Heading */}
+            {/* Sub-heading label */}
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.05 }}
+              className="text-xs font-mono uppercase tracking-[0.15em] text-foreground-secondary/70 font-semibold"
+            >
+              Learn. Build. Lead.
+            </motion.p>
+
+            {/* Main Editorial Heading */}
             <motion.h2
               initial={{ opacity: 0, y: 12 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight tracking-tight"
             >
-              A place to grow,{" "}
-              <span className="editorial-text font-normal text-accent italic">learn &amp; lead.</span>
+              More than a job, <br />
+              <span className="editorial-text font-normal text-accent italic">
+                it's an opportunity
+              </span>
             </motion.h2>
 
-            {/* Sub-heading */}
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="mt-3 text-lg font-display font-semibold text-foreground-secondary"
-            >
-              Join Our Team · Learn. Build. Lead.
-            </motion.p>
-
-            {/* Body */}
+            {/* Body copy */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-6 space-y-5 text-foreground-secondary leading-relaxed font-light"
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="space-y-4 text-foreground-secondary text-base leading-relaxed font-light"
             >
-              <p className="text-lg font-medium text-foreground">
-                More than a job, it&apos;s an opportunity
-              </p>
               <p>
                 Becoming a part of True Life Global Pte. Ltd. is not merely about securing
                 employment; it is about building your career in a Singapore-registered,
@@ -115,20 +116,42 @@ export default function Careers() {
               </p>
             </motion.div>
 
-            {/* Bottom tagline + CTA buttons */}
+            {/* Benefit cards stacked */}
+            <div className="space-y-4 pt-3">
+              {BENEFITS.map((benefit, i) => (
+                <motion.div
+                  key={benefit.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.2 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-start gap-4 p-5 rounded-2xl bg-card-bg border border-card-border hover:border-accent/30 transition-all duration-200 group"
+                >
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-accent-tint text-accent border border-accent/10 flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
+                    {benefit.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-base font-display font-bold text-foreground group-hover:text-accent transition-colors duration-200">
+                      {benefit.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-foreground-secondary leading-relaxed font-light">
+                      {benefit.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom Tagline & CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="mt-10 space-y-5"
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="space-y-5 pt-3"
             >
-              <p className="text-sm text-foreground-secondary italic">
-                Take the first step towards a fulfilling career with us.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto">
                 <a
                   href="/#contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-accent text-white hover:bg-accent-readable shadow-sm hover:shadow-md transition-all duration-150 hover:-translate-y-0.5"
+                  className="btn-wow-effect w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-accent text-white hover:bg-accent-readable shadow-sm hover:shadow transition-all duration-150"
                 >
                   Apply / Get in Touch
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -138,7 +161,7 @@ export default function Careers() {
                 </a>
                 <a
                   href="/#about"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-card-bg border border-card-border text-foreground hover:border-accent/40 hover:text-accent transition-all duration-150 hover:-translate-y-0.5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-card-bg border border-card-border text-foreground hover:border-accent/40 hover:text-accent transition-all duration-150"
                 >
                   Learn More
                 </a>
@@ -146,30 +169,41 @@ export default function Careers() {
             </motion.div>
           </div>
 
-          {/* RIGHT: Benefit cards stacked */}
-          <div className="space-y-5">
-            {BENEFITS.map((benefit, i) => (
-              <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, x: 20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                className="flex items-start gap-5 p-6 rounded-2xl bg-card-bg border border-card-border hover:border-accent/30 hover:shadow-sm transition-all duration-200 group"
-              >
-                {/* Icon Badge */}
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-accent-tint text-accent border border-accent/10 flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
-                  {benefit.icon}
+          {/* RIGHT: Image with floating badge (5 columns) */}
+          <div className="lg:col-span-5 relative flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98, y: 15 }}
+              animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full max-w-[440px] aspect-[4/5] md:aspect-[3/4] relative"
+            >
+              <TiltCard className="w-full h-full rounded-[2rem] overflow-hidden shadow-xl border border-card-border relative group">
+                <Image
+                  src="/singapore-office-team.png"
+                  alt="True Life Global Careers Team"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-103"
+                  priority
+                  quality={95}
+                />
+                
+                {/* Subtle dark gradient overlay at bottom for contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+
+                {/* Floating badge inside image card at the bottom */}
+                <div className="absolute bottom-6 left-6 right-6 z-10 flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
+                  <div className="w-7 h-7 rounded-lg flex items-center justify-center bg-[#0066cc]/30 text-[#60a5fa] border border-[#0066cc]/20">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-mono uppercase tracking-wider text-white/50 leading-none">True Life Global</p>
+                    <p className="text-xs font-bold text-white tracking-wide mt-1 leading-none">A place to grow, learn &amp; lead.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-base font-display font-bold text-foreground group-hover:text-accent transition-colors duration-200">
-                    {benefit.title}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-foreground-secondary leading-relaxed font-light">
-                    {benefit.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+              </TiltCard>
+            </motion.div>
           </div>
 
         </div>

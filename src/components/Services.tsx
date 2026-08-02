@@ -4,6 +4,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { SERVICES } from "@/lib/constants";
 
+import TiltCard from "./TiltCard";
+
 export default function Services() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -32,7 +34,7 @@ export default function Services() {
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
           className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight max-w-2xl"
         >
           Our Services
@@ -57,57 +59,39 @@ export default function Services() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <a
-                href={`/services/${service.slug}`}
-                className="group block h-full p-8 rounded-3xl premium-card"
-              >
-                {/* Index & Top line */}
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono uppercase tracking-[0.15em] text-accent-readable">
-                    {service.index}
-                  </span>
-                  <div className="w-8 h-[1px] bg-border group-hover:bg-accent/40 transition-colors duration-300" />
-                </div>
-
-                {/* Title */}
-                <h3 className="mt-6 text-xl lg:text-2xl font-display font-bold text-foreground group-hover:text-accent transition-colors duration-300">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="mt-4 text-foreground-secondary leading-relaxed text-sm font-light">
-                  {service.description}
-                </p>
-
-                {/* Tags */}
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-[10px] font-mono tracking-wide text-foreground-secondary bg-background border border-border rounded-lg"
-                    >
-                      {tag}
+              <TiltCard className="h-full rounded-3xl premium-card group">
+                <div className="p-8 h-full">
+                  {/* Index & Top line */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono uppercase tracking-[0.15em] text-accent-readable">
+                      {service.index}
                     </span>
-                  ))}
-                </div>
+                    <div className="w-8 h-[1px] bg-border group-hover:bg-accent/40 transition-colors duration-300" />
+                  </div>
 
-                {/* Learn More */}
-                <div className="mt-8 pt-6 border-t border-border/80 flex items-center text-xs font-mono uppercase tracking-wider text-accent-readable group-hover:text-accent transition-colors duration-300">
-                  <span>Learn more</span>
-                  <svg
-                    className="ml-2.5 w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform duration-300"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
+                  {/* Title */}
+                  <h3 className="mt-6 text-xl lg:text-2xl font-display font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="mt-4 text-foreground-secondary leading-relaxed text-sm font-light">
+                    {service.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="mt-8 flex flex-wrap gap-2">
+                    {service.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-[10px] font-mono tracking-wide text-foreground-secondary bg-background border border-border rounded-lg"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </a>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
