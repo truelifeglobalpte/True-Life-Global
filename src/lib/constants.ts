@@ -6,7 +6,7 @@ export const COMPANY = {
   name: "True Life Global Pte. Ltd.",
   shortName: "True Life Global",
   uen: "202626385E",
-  incorporatedDate: "11 June 2026",
+  incorporatedDate: "June 2026",
   address: "1003 Toa Payoh Industrial Park, #07-1501, Singapore 319075",
   email: "info@truelifeglobal.com",
   phone: "+65 8464 6537",
