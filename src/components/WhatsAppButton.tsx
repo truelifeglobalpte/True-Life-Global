@@ -5,8 +5,18 @@ import { COMPANY } from "@/lib/constants";
 export default function WhatsAppButton({ isChatOpen }: { isChatOpen: boolean }) {
   if (isChatOpen) return null;
 
-  // Placeholder number until confirmed
-  const message = encodeURIComponent("Hi True Life Global, I'd like to enquire about your services.");
+  const messageText = 
+    "Hello True Life Global,\n\n" +
+    "I would like to enquire about your professional services. I am interested in:\n" +
+    "• Corporate Accounting & Bookkeeping\n" +
+    "• Statutory Auditing\n" +
+    "• Tax Advisory & Compliance\n" +
+    "• Courier & Express Logistics\n\n" +
+    "Here are my details:\n" +
+    "Name: \n" +
+    "Company (if applicable): \n" +
+    "Nature of inquiry: ";
+  const message = encodeURIComponent(messageText);
   const link = `https://wa.me/${COMPANY.whatsapp}?text=${message}`;
 
   return (

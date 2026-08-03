@@ -32,6 +32,29 @@ export default function JsonLd() {
     ]
   };
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": COMPANY.name,
+    "alternateName": COMPANY.shortName,
+    "url": "https://truelifeglobal.com",
+    "logo": "https://truelifeglobal.com/apple-touch-icon.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": COMPANY.phone,
+      "contactType": "customer service",
+      "areaServed": "SG",
+      "availableLanguage": "en"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1003 Toa Payoh Industrial Park, #07-1501",
+      "addressLocality": "Singapore",
+      "postalCode": "319075",
+      "addressCountry": "SG"
+    }
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -50,6 +73,10 @@ export default function JsonLd() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <script
         type="application/ld+json"

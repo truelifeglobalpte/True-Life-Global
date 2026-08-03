@@ -46,31 +46,38 @@ export default function About() {
             </motion.p>
 
             {/* Main body text */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-5 text-foreground-secondary text-base sm:text-lg leading-relaxed font-light"
-            >
-              <p>
+            <div className="space-y-5 text-foreground-secondary text-base sm:text-lg leading-relaxed font-light">
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
                 True Life Global Pte. Ltd. is a Singapore registered company delivering trusted
                 financial expertise and reliable courier support for modern businesses. A specialized
                 advisory and accounting firm committed to delivering enduring value through precision,
                 compliance, and strategic clarity.
-              </p>
-              <p>
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.35 }}
+              >
                 Our mission is to help businesses streamline their financial operations, maintain
                 regulatory compliance, and achieve sustainable growth through practical and professional
                 support. We combine industry knowledge, integrity, and service quality to create value
                 for every client.
-              </p>
-              <p>
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
                 At True Life Global, we believe in building long-term relationships, acting as a
                 trusted extension of your team whether managing financial records, providing tax
                 advisory services, supporting audit requirements, or delivering dependable courier
                 solutions across Singapore.
-              </p>
-            </motion.div>
+              </motion.p>
+            </div>
 
             {/* Vision and Mission Cards */}
             <motion.div
