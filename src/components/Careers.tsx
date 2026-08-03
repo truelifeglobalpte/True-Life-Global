@@ -158,12 +158,6 @@ export default function Careers() {
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </a>
-                <a
-                  href="/#about"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-card-bg border border-card-border text-foreground hover:border-accent/40 hover:text-accent transition-all duration-150"
-                >
-                  Learn More
-                </a>
               </div>
             </motion.div>
           </div>
