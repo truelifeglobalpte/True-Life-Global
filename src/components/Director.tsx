@@ -7,37 +7,20 @@ import Image from "next/image";
 const LEADERS = [
   {
     name: "Dr. Sivadeeskannan K",
-    role: "Chief Executive Officer",
+    role: "Founder & Chief Executive Officer",
     image: "/coo.jpg",
     imagePosition: "object-[center_10%]",
     bio: [
-      "Dr. Sivadeeskannan K is the Chief Executive Officer of True Life Global Pte. Ltd., where he manages the daily operations, business processes, and strategic initiatives of the company. He is dedicated to creating efficient systems, improving organizational performance, and fostering sustainable business growth.",
+      "Dr. Sivadeeskannan K is the Founder & Chief Executive Officer of True Life Global Pte. Ltd., where he manages the daily operations, business processes, and strategic initiatives of the company. He is dedicated to creating efficient systems, improving organizational performance, and fostering sustainable business growth.",
       "He earned a B.B.A. and LL.B. (Hons) from Bharath Institute of Higher Education and Research in Chennai, and has received an Honorary Doctorate in Social Services. Additionally, he is currently pursuing an MBA specialized in Human Resource Management at Alagappa University in Karaikudi.",
-      "In his role as CEO, he collaborates closely with the executive leadership team to streamline operations, ensure compliance with regulations, enhance client satisfaction, and support the long-term goals of True Life Global Pte. Ltd.",
+      "In his role as Founder & CEO, he collaborates closely with the executive leadership team to streamline operations, ensure compliance with regulations, enhance client satisfaction, and support the long-term goals of True Life Global Pte. Ltd.",
     ],
     badges: ["Honorary Doctorate", "BBA LL.B (Hons)", "MBA (HRM)"],
     tags: ["Honorary Doctorate", "Business Management", "Corporate Governance", "Legal Compliance", "HR Management"],
     stats: [
       { stat: "BBA", label: "LL.B. (Hons)" },
       { stat: "MBA", label: "HR Management (Pursuing)" },
-      { stat: "CEO", label: "Strategic Leadership" },
-    ],
-  },
-  {
-    name: "Soundarrajan Vaithiyanathan",
-    role: "Founder & Chief Operating Officer",
-    image: "/founder-ceo.jpg",
-    imagePosition: "object-[center_25%]",
-    bio: [
-      "Soundarrajan Vaithiyanathan is the innovative Founder & Chief operating officer of True Life Global Pte. Ltd a company based in Singapore that provides comprehensive accounting and logistics solutions. With more than 14 years of extensive experience in finance and operations within multinational firms in Singapore and India, he possesses significant knowledge in financial management, compliance, and business operations.",
-      "His career includes tenures at industry giants such as Genpact, Capgemini, Teleperformance, and Rohlig Blue Service, where he oversaw high-volume financial transactions, directed cross-functional teams, and executed SAP ERP systems in global settings. He is a certified US GAAP professional from Ernst & Young (2026) and has earned an MBA.",
-    ],
-    badges: ["US GAAP (EY)", "MBA", "14+ Yrs Experience"],
-    tags: ["Genpact", "Capgemini", "Teleperformance", "Rohlig Blue Service", "Ernst & Young"],
-    stats: [
-      { stat: "14+", label: "Years Experience" },
-      { stat: "US GAAP", label: "Certified (EY 2026)" },
-      { stat: "MBA", label: "Business Management" },
+      { stat: "Founder & CEO", label: "Strategic Leadership" },
     ],
   },
 ];
