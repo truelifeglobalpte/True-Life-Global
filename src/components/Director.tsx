@@ -13,7 +13,6 @@ const LEADERS = [
     bio: [
       "Dr. Sivadeeskannan K is the Founder & Chief Executive Officer of True Life Global Pte. Ltd., where he manages the daily operations, business processes, and strategic initiatives of the company. He is dedicated to creating efficient systems, improving organizational performance, and fostering sustainable business growth.",
       "He earned a B.B.A. and LL.B. (Hons) from Bharath Institute of Higher Education and Research in Chennai, and has received an Honorary Doctorate in Social Services. Additionally, he is currently pursuing an MBA specialized in Human Resource Management at Alagappa University in Karaikudi.",
-      "In his role as Founder & CEO, he collaborates closely with the executive leadership team to streamline operations, ensure compliance with regulations, enhance client satisfaction, and support the long-term goals of True Life Global Pte. Ltd.",
     ],
     badges: ["Honorary Doctorate", "BBA LL.B (Hons)", "MBA (HRM)"],
     tags: ["Honorary Doctorate", "Business Management", "Corporate Governance", "Legal Compliance", "HR Management"],
